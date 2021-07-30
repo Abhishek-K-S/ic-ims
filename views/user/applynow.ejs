@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href ="../../static/css/datatables.min.css"/>
+    <link rel="stylesheet" type= "text/css" href ="../../static/css/bootstrap.css"/>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row h2">
+            Apply for Internships
+        </div>
+        <div class="row">
+            <div class="col pt-4">
+                <%result && result.map((res)=>{%>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=res.title%></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Availability: <%=res.remaining%></h6>
+                            <p class="card-text"><%=res.description%></p>
+                            <a href=<%=id+"/join/"+res.id%> class="card-link">Apply now</a>
+                        </div>
+                    </div>
+                <%})%>
+            </div>    
+        </div>
+    </div>
+
+    <script src="../../static/js/jquery.js"></script>
+    <script src="../../static/js/datatables.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#dtable').DataTable()
+        })
+    </script>
+</body>
+</html>
