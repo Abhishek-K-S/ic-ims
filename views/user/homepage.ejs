@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href ="/static/css/datatables.min.css"/>
+    <link rel="stylesheet" type= "text/css" href ="/static/css/bootstrap.css"/>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 bg-lighter">
+                <table id="dtable" class =" display" style="width: 100%"> 
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Joined</th>
+                            <th>Assigned</th>
+                            <th>Course Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%if(result.length != 0){
+                            result.forEach((a)=>{
+                                var date = new Date(a.joined)%>
+                                <tr>
+                                    <td><%=a.name%></td>
+                                    <td><%=date.toLocaleDateString()%></td>
+                                    <td><%=a.assigned%></td>
+                                    <td><%=a.courseName%></td>
+                                </tr>
+                            <%})
+                        }%>
+                    </tbody>
+                    
+                </table>
+            </div>
+            <div class="col-md-6">
+                <p class="mt-3 px-2">
+                    <span class="font-weight-bolder">Apply for INTERNSHIPS of your choice.</span>
+                    Apply now by clicking on the following button
+                </p>
+                <a class="btn btn-secondary mb-4" href=<%="/applynow/"+id%> > Apply now </a>
+
+                <p>Already applied!. Know your status by clicking the following button</p>
+                <a class="btn btn-secondary mb-4" href=<%="/viewstatus/"+id%> > My status </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/datatables.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#dtable').DataTable()
+        })
+    </script>
+</body>
+</html>

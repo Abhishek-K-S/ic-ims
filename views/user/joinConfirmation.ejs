@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href ="/static/css/datatables.min.css"/>
+    <link rel="stylesheet" type= "text/css" href ="/static/css/bootstrap.css"/>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col h2">
+                Course Selected: <span class="text-primary"> <%=result[0].title%></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col h3">Description</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><%=result[0].description%></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form action="/join" method="POST">
+                    <div class="form-group d-none">
+                        <input type="text" readonly class="form-control" name="userId" value=<%=id%> >
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" readonly class="form-control" name="courseId" value=<%=result[0].id%> >
+                    </div>
+                    <div class="form-group d-none">
+                        <input type="text" readonly class="form-control" name="courseName" value=<%=result[0].title%> >
+                    </div>
+                    <button type="submit" class="btn btn-primary">Confirm join</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../static/js/jquery.js"></script>
+    <script src="../../static/js/bootstrap.bundle.js"></script>
+</body>
+</html>

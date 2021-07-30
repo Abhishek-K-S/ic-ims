@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href ="/static/css/datatables.min.css"/>
+    <link rel="stylesheet" type= "text/css" href ="/static/css/bootstrap.css"/>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row flex-column">
+            <div class="col h2 mt-2">Your details:</div>
+            <div class="col mt-4 bg-light">Name: <%=result[0].name%></div>
+            <div class="col mt-2 bg-light">Email: <%=result[0].email%></div>
+            <div class="col mt-2 bg-light">Upload your resume here 
+                <input type="file" class="form-control-file mt-1" disabled>
+            </div>
+            <div class="col mt-2 bg-light">view your status 
+                <a href=<%='/viewStatus/'+id%> class="btn btn-primary mt-2 ">View Status</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/datatables.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $('#dtable').DataTable()
+        })
+    </script>
+</body>
+</html>
